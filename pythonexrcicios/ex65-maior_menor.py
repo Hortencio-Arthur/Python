@@ -27,9 +27,8 @@ media = soma / cont
 print(f'Voce digitou {cont} numeros e a media dos valores foi {media:.2f}.')
 print(f'O MENOR valor foi {menor} e o MAIOR foi {maior}')'''
 
-resp = 'S'
 soma = quant = menor = maior = 0
-while resp in 'Ss':
+while True:
     n = int(input('Digite um numero: '))
     soma += n
     quant += 1
@@ -40,12 +39,15 @@ while resp in 'Ss':
             maior = n
         if n < menor:
             menor = n
-    resp = ' '
-    while resp not in 'SN':
+    while True:
         resp = str(input('Quer continuar?[S/N]: ')).upper().strip()[0:1]
-        if resp not in 'SN':
-            print('Valor inválido! Por favor, digite apenas S ou N.')
+        if resp in 'SN':
+            break
+        print('Valor inválido! Por favor, digite apenas S ou N.')
+    if resp == 'N':
+        break
+
 media = soma / quant
 
-print(f'Voce digitou {quant} numeros e a media foi {media}.')
+print(f'Voce digitou {quant} numeros e a media foi {media:.f2}.')
 print(f'o menor valor foi {menor} e o maior foi {maior}.')
